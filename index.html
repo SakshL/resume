@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakshyam Baral - Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Formal, professional styling with refined design elements */
+        :root {
+            --primary-color: #1e40af;
+            --primary-light: #3b82f6;
+            --primary-dark: #1e3a8a;
+            --secondary-color: #334155;
+            --accent-color: #0369a1;
+            --text-color: #1e293b;
+            --text-light: #64748b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        /* Formal header styling */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 0 30px;
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin: 15px 0 10px 0;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        /* Formal card styling */
+        .resume-container {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 40px 50px;
+            margin-bottom: 40px;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        
+        .resume-container:hover {
+            box-shadow: var(--shadow-hover);
+        }
+        
+        /* Formal button styling */
+        .view-toggle {
+            text-align: center;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .toggle-btn, .print-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .toggle-btn:hover, .print-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .print-btn {
+            background-color: var(--secondary-color);
+        }
+        
+        .print-btn:hover {
+            background-color: #1e293b;
+        }
+        
+        /* Formal layout */
+        .two-column {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .column {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        /* Formal skill visualization */
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-item {
+            margin-bottom: 18px;
+            position: relative;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+        
+        .skill-level {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .skill-bar {
+            height: 6px;
+            background-color: #e2e8f0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+            width: 0;
+            transition: width 1s ease;
+        }
+        
+        /* Formal list styling */
+        .custom-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 22px;
+        }
+        
+        .custom-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        /* Formal experience and education cards */
+        .education-item, .experience-item {
+            margin-bottom: 25px;
+            padding: 18px 20px;
+            border-radius: 6px;
+            transition: var(--transition);
+            border-left: 2px solid var(--border-color);
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .education-item:hover, .experience-item:hover {
+            border-left: 2px solid var(--primary-color);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .date {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+        
+        .role {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        /* Formal contact section */
+        .contact-section {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 6px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            flex: 1;
+            min-width: 250px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .contact-item:hover {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-icon {
+            margin-right: 12px;
+            color: var(--primary-color);
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .contact-text {
+            font-weight: 500;
+        }
+        
+        /* Subtle animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        section {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        
+        /* Staggered animations */
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.15s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.25s; }
+        section:nth-child(5) { animation-delay: 0.3s; }
+        
+        /* Formal footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            color: var(--text-light);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .resume-container {
+                padding: 25px;
+            }
+            
+            .two-column {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .column {
+                min-width: 100%;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+            }
+            
+            .contact-item {
+                width: 100%;
+            }
+            
+            .view-toggle {
+                flex-direction: column;
+            }
+            
+            .toggle-btn, .print-btn {
+                width: 100%;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                font-size: 11pt;
+            }
+            
+            .view-toggle, .print-btn, .toggle-btn {
+                display: none;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                padding: 0;
+                margin: 0;
+                border: none;
+            }
+            
+            header {
+                padding-top: 0;
+            }
+            
+            .skill-progress {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .education-item, .experience-item, .contact-item {
+                box-shadow: none;
+                border: 1px solid #eee;
+            }
+            
+            footer {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sakshyam Baral</h1>
+        <p class="subtitle">Student Developer</p>
+    </header>
+    
+    <div class="view-toggle">
+        <button class="toggle-btn" onclick="viewPDF()"><i class="fas fa-file-pdf"></i> View PDF Resume</button>
+        <button class="print-btn" onclick="window.print()"><i class="fas fa-print"></i> Print Resume</button>
+    </div>
+    
+    <main>
+        <div id="html-view" class="resume-container">
+            <section>
+                <h2>About Me</h2>
+                <p>Enthusiastic and self-driven Computer Science student with a Management background, seeking opportunities to expand technical and analytical skills in a global academic environment. Passionate about technology, software development, and data analytics, with a strong foundation in coding and project execution.</p>
+            </section>
+            
+            <div class="two-column">
+                <div class="column">
+                    <section>
+                        <h2>Technical Skills</h2>
+                        <ul class="skill-list">
+                            <li class="skill-item">
+                                <div class="skill-name">
+                                    <span>Python & C Programming</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 0%" data-width="90%"></div>
+                                </div>
+                            </li>
+                            <li class="skill-item">
+                                <div class="skill-name">
+                                    <span>Web Development (HTML, CSS, JavaScript)</span>
+                                    <span class="skill-level">Proficient</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 0%" data-width="85%"></div>
+                                </div>
+                            </li>
+                            <li class="skill-item">
+                                <div class="skill-name">
+                                    <span>Git & GitHub (Version Control)</span>
+                                    <span class="skill-level">Proficient</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 0%" data-width="80%"></div>
+                                </div>
+                            </li>
+                            <li class="skill-item">
+                                <div class="skill-name">
+                                    <span>Data Analysis & Visualization</span>
+                                    <span class="skill-level">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 0%" data-width="75%"></div>
+                                </div>
+                            </li>
+                            <li class="skill-item">
+                                <div class="skill-name">
+                                    <span>Business & Financial Analysis</span>
+                                    <span class="skill-level">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 0%" data-width="70%"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <section>
+                        <h2>Professional Skills</h2>
+                        <ul class="custom-list">
+                            <li>Critical Thinking and Problem Solving</li>
+                            <li>Professional Communication</li>
+                            <li>Time Management and Organization</li>
+                            <li>Self-Learning & Adaptability</li>
+                        </ul>
+                    </section>
+                </div>
+                
+                <div class="column">
+                    <section>
+                        <h2>Education</h2>
+                        <div class="education-item">
+                            <h3>Little Flowers' English School</h3>
+                            <p>Grade: 2-10</p>
+                            <p class="date"><i class="fas fa-calendar-alt"></i> Completed in 2022</p>
+                        </div>
+                        
+                        <div class="education-item">
+                            <h3>Little Flowers' English School</h3>
+                            <p>Grade 12 (Management + Computer Science)</p>
+                            <p class="date"><i class="fas fa-calendar-alt"></i> Expected Graduation: Mid-2025</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            
+            <section>
+                <h2>Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <h3>Personal Website – sakshyambaral.com.np</h3>
+                    <p class="date"><i class="fas fa-calendar-alt"></i> 2019 – Present</p>
+                    <p class="role">Developer & Content Manager</p>
+                    <ul class="custom-list">
+                        <li>Designed and maintain a personal website showcasing projects and blogs</li>
+                        <li>Applied HTML, CSS, and Git for version control</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>School Coding Projects</h3>
+                    <p class="date"><i class="fas fa-calendar-alt"></i> 2023 – 2024</p>
+                    <p class="role">Student Developer</p>
+                    <ul class="custom-list">
+                        <li>Created a basic banking system in C</li>
+                        <li>Developed a dynamic quiz application using JavaScript</li>
+                        <li>Analyzed mock datasets using Python</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>Discord Bot Development</h3>
+                    <p class="date"><i class="fas fa-calendar-alt"></i> 2019-2023</p>
+                    <ul class="custom-list">
+                        <li>Developed custom Discord bots using Python (discord.py)</li>
+                        <li>Implemented features like command handling, auto-responses, and moderation tools</li>
+                        <li>Learned about APIs, event-driven programming, and hosting bots online (e.g., via Replit or Heroku)</li>
+                        <li>Used GitHub for version control and collaboration</li>
+                        <li>Gained hands-on experience in real-time messaging applications</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Achievements & Certifications</h2>
+                <ul class="custom-list">
+                    <li>Built and deployed a personal portfolio website (sakshyambaral.com.np)</li>
+                    <li>Developed custom Discord bots using Python and Discord.py</li>
+                    <li>Earned 7+ certifications in Data Analytics, Business Analysis, and Development (May 2025)</li>
+                    <li>Scored top marks in Computer Science despite coming from a Management stream</li>
+                    <li>Self-taught in Python, Git, and web development alongside academics</li>
+                </ul>
+            </section>
+            
+            <section class="contact-section">
+                <h2>Contact Information</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span class="contact-text">sakshyambaral07@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span class="contact-text">Birtamod, Jhapa Nepal</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <span class="contact-text">+977 9761611651</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe contact-icon"></i>
+                        <span class="contact-text">www.sakshyambaral.com.np</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Sakshyam Baral. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        function viewPDF() {
+            window.open('https://drive.google.com/file/d/1lkAHykeY0I2UxKcbho1KOczeKPgQgOHL/view?usp=drive_link', '_blank');
+        }
+        
+        // Animate skill bars on load
+        window.addEventListener('load', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                setTimeout(() => {
+                    bar.style.width = bar.getAttribute('data-width');
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
